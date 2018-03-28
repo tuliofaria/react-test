@@ -1,0 +1,20 @@
+import React from 'react'
+import { connect } from 'react-redux'
+
+const Teste = props => <div>
+  {JSON.stringify(props)}
+  <button onClick={props.count}>Contar!</button>
+</div>
+
+const mapStateToProps = store => {
+  return {
+    outro: store.counter
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    count: () => dispatch({ type: 'COUNT' })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Teste)
